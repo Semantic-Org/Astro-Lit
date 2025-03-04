@@ -1,3 +1,8 @@
+## 5.0.1
+
+### Bugs
+- Fix dist was built pre-fork
+
 ## 5.0.0
 
 ### Major Changes

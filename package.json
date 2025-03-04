@@ -1,6 +1,6 @@
 {
   "name": "@semantic-ui/astro-lit",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Use Lit components with Astro",
   "type": "module",
   "types": "./dist/index.d.ts",
