@@ -1,7 +1,13 @@
+## 5.0.2
+
+### Feats
+- This adds a new standalone build pipeline which should fix issues with published source.
+
+
 ## 5.0.1
 
 ### Bugs
-- Fix dist was built pre-fork
+- Fix dist was built pre-fork.
 
 ## 5.0.0
 
