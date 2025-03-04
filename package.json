@@ -4,12 +4,8 @@
   "description": "Use Lit components with Astro",
   "type": "module",
   "types": "./dist/index.d.ts",
-  "author": "withastro",
+  "author": "jlukic",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Semantic-Org/Astro-Lit.git"
-  },
   "keywords": [
     "astro-integration",
     "astro-component",
