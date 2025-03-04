@@ -5,30 +5,30 @@ function getViteConfiguration() {
 	return {
 		optimizeDeps: {
 			include: [
-				'@semantic-org/astro-lit/dist/client.js',
-				'@semantic-org/astro-lit/client-shim.js',
-				'@semantic-org/astro-lit/hydration-support.js',
+				'@semantic-ui/astro-lit/dist/client.js',
+				'@semantic-ui/astro-lit/client-shim.js',
+				'@semantic-ui/astro-lit/hydration-support.js',
 				'@webcomponents/template-shadowroot/template-shadowroot.js',
 				'@lit-labs/ssr-client/lit-element-hydrate-support.js',
 			],
-			exclude: ['@semantic-org/astro-lit/server.js'],
+			exclude: ['@semantic-ui/astro-lit/server.js'],
 		},
 		ssr: {
-			external: ['lit-element', '@lit-labs/ssr', '@semantic-org/astro-lit', 'lit/decorators.js'],
+			external: ['lit-element', '@lit-labs/ssr', '@semantic-ui/astro-lit', 'lit/decorators.js'],
 		},
 	};
 }
 
 export function getContainerRenderer(): ContainerRenderer {
 	return {
-		name: '@semantic-org/astro-lit',
-		serverEntrypoint: '@semantic-org/astro-lit/server.js',
+		name: '@semantic-ui/astro-lit',
+		serverEntrypoint: '@semantic-ui/astro-lit/server.js',
 	};
 }
 
 export default function (): AstroIntegration {
 	return {
-		name: '@semantic-org/astro-lit',
+		name: '@semantic-ui/astro-lit',
 		hooks: {
 			'astro:config:setup': ({ updateConfig, addRenderer, injectScript }) => {
 				// Inject the necessary polyfills on every page (inlined for speed).
@@ -37,12 +37,12 @@ export default function (): AstroIntegration {
 					readFileSync(new URL('../client-shim.min.js', import.meta.url), { encoding: 'utf-8' })
 				);
 				// Inject the hydration code, before a component is hydrated.
-				injectScript('before-hydration', `import '@semantic-org/astro-lit/hydration-support.js';`);
+				injectScript('before-hydration', `import '@semantic-ui/astro-lit/hydration-support.js';`);
 				// Add the lit renderer so that Astro can understand lit components.
 				addRenderer({
-					name: '@semantic-org/astro-lit',
-					serverEntrypoint: '@semantic-org/astro-lit/server.js',
-					clientEntrypoint: '@semantic-org/astro-lit/dist/client.js',
+					name: '@semantic-ui/astro-lit',
+					serverEntrypoint: '@semantic-ui/astro-lit/server.js',
+					clientEntrypoint: '@semantic-ui/astro-lit/dist/client.js',
 				});
 				// Update the vite configuration.
 				updateConfig({
