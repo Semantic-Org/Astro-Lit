@@ -8,7 +8,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Semantic-Org/Astro-Lit.git",
+    "url": "https://github.com/Semantic-Org/Astro-Lit.git"
   },
   "keywords": [
     "astro-integration",
