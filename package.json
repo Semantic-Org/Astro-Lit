@@ -1,15 +1,14 @@
 {
   "name": "@semantic-org/astro-lit",
   "version": "5.0.0",
-  "description": "Use Lit components within Astro",
+  "description": "Use Lit components with Astro",
   "type": "module",
   "types": "./dist/index.d.ts",
   "author": "withastro",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/withastro/astro.git",
-    "directory": "packages/integrations/lit"
+    "url": "https://github.com/Semantic-Org/Astro-Lit.git",
   },
   "keywords": [
     "astro-integration",
@@ -17,7 +16,6 @@
     "renderer",
     "lit"
   ],
-  "bugs": "https://github.com/withastro/astro/issues",
   "homepage": "https://docs.astro.build/en/guides/integrations-guide/lit/",
   "exports": {
     ".": "./dist/index.js",
@@ -57,8 +55,6 @@
     }
   },
   "devDependencies": {
-    "astro": "workspace:*",
-    "astro-scripts": "workspace:*",
     "cheerio": "1.0.0",
     "lit": "^3.2.1",
     "sass": "^1.85.1"
