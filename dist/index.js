@@ -1,3 +1,4 @@
+// src/index.ts
 import { readFileSync } from "node:fs";
 function getViteConfiguration() {
   return {

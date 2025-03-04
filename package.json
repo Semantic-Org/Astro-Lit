@@ -34,10 +34,12 @@
     "server-shim.js"
   ],
   "scripts": {
-    "build": "astro-scripts build \"src/**/*.ts\" && tsc",
-    "build:ci": "astro-scripts build \"src/**/*.ts\"",
-    "dev": "astro-scripts dev \"src/**/*.ts\"",
-    "test": "astro-scripts test \"test/**/*.test.js\""
+    "build": "npm run build:js && npm run build:types && npm run build:minify",
+    "build:js": "esbuild src/index.ts src/client.ts --format=esm --bundle --platform=node --outdir=dist",
+    "build:types": "tsc src/client.ts --declaration --emitDeclarationOnly --skipLibCheck --outDir ./dist",
+    "build:minify": "esbuild client-shim.js --minify --outfile=client-shim.min.js",
+    "dev": "npm run build -- --watch",
+    "test": "node test/server.test.js && node test/sass.test.js"
   },
   "dependencies": {
     "@lit-labs/ssr": "^3.3.1",
@@ -52,8 +54,10 @@
   },
   "devDependencies": {
     "cheerio": "1.0.0",
+    "esbuild": "^0.25.0",
     "lit": "^3.2.1",
-    "sass": "^1.85.1"
+    "sass": "^1.85.1",
+    "typescript": "^5.8.2"
   },
   "peerDependencies": {
     "@webcomponents/template-shadowroot": "^0.2.1",

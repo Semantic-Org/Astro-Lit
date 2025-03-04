@@ -1,4 +1,5 @@
-const addSlotAttrsToHtmlString = (slotName, html) => {
+// src/client.ts
+var addSlotAttrsToHtmlString = (slotName, html) => {
   const templ = document.createElement("template");
   templ.innerHTML = html;
   Array.from(templ.content.children).forEach((node) => {
