@@ -1,5 +1,5 @@
 {
-  "name": "@semantic-org/astro-lit",
+  "name": "@semantic-ui/astro-lit",
   "version": "5.0.0",
   "description": "Use Lit components with Astro",
   "type": "module",
