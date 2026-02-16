@@ -14,7 +14,7 @@ function getViteConfiguration() {
 			exclude: ['@semantic-ui/astro-lit/server.js'],
 		},
 		ssr: {
-			external: ['lit-element', '@lit-labs/ssr', '@semantic-ui/astro-lit', 'lit/decorators.js'],
+			external: [],
 		},
 	};
 }
