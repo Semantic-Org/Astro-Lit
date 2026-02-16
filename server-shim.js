@@ -1,5 +1,23 @@
 import { customElements as litCE, HTMLElement as litShimHTMLElement } from '@lit-labs/ssr-dom-shim';
 
+// Minimal DOM Shim for Cloudflare/SSR
+if (!globalThis.window) {
+    globalThis.window = globalThis;
+}
+if (!globalThis.document) {
+    globalThis.document = {
+        createElement(tag) { 
+            if (tag === 'template') {
+                return { content: { firstChild: { replaceWith: () => {} }, childNodes: [] }, firstChild: {}, innerHTML: "" };
+            }
+            return { setAttribute: () => {}, removeAttribute: () => {}, append: () => {}, textContent: '' }; 
+        },
+        createComment() { return {} },
+        createTreeWalker() { return { nextNode: () => null, currentNode: null } },
+        location: { href: '' },
+    };
+}
+
 // Something at build time injects document.currentScript = undefined instead of
 // document.currentScript = null. This causes Sass build to fail because it
 // seems to be expecting `=== null`. This set to `undefined` doesn't seem to be
@@ -9,7 +27,9 @@ if (globalThis.document) {
 	document.currentScript = null;
 }
 
-if (globalThis.HTMLElement) {
+if (!globalThis.HTMLElement) {
+	globalThis.HTMLElement = litShimHTMLElement;
+} else if (globalThis.HTMLElement) {
 	// Seems Astro's Element shim does nothing when `.setAttribute` is called
 	// and subsequently `.getAttribute` is called. Causes Lit to not SSR attrs
 	globalThis.HTMLElement = litShimHTMLElement;
