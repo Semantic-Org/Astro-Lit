@@ -22,6 +22,7 @@
     "./client-shim.js": "./client-shim.js",
     "./dist/client.js": "./dist/client.js",
     "./hydration-support.js": "./hydration-support.js",
+    "./hydration-support-global.js": "./hydration-support-global.js",
     "./package.json": "./package.json"
   },
   "files": [
@@ -29,6 +30,7 @@
     "client-shim.js",
     "client-shim.min.js",
     "hydration-support.js",
+    "hydration-support-global.js",
     "server.js",
     "server.d.ts",
     "server-shim.js"
